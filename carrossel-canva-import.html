@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Clin Clin — Carrossel Harmonização de Glúteos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --areia:#f6fcfc; --sage:#d5eded; --bordo:#4c2929; --bordo-soft:#4d2f2f;
+    --verde:#159b9b; --teal:#4d9595; --teal-bright:#73aeae;
+    --branco:#ffffff; --cinza-leg:#8a9a9a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Jost',sans-serif;font-weight:300}
+
+  .page{
+    width:1080px;height:1080px;position:relative;overflow:hidden;
+    font-family:'Jost',sans-serif;font-weight:300;
+  }
+  .eyebrow{font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.32em;
+           text-transform:uppercase;font-size:26px}
+  .headline{font-family:'Jost',sans-serif;font-weight:400;font-size:84px;
+            line-height:1.08;letter-spacing:-.01em}
+  .headline em,.accent{font-style:italic;font-weight:400}
+  .body{font-family:'Jost',sans-serif;font-weight:300;font-size:42px;line-height:1.5}
+
+  /* FRAME 01 — CAPA */
+  #f1{background:linear-gradient(135deg,#c98f63,#8a5a3c);color:var(--branco)}
+  #f1 .top{position:absolute;top:68px;left:72px;right:72px;display:flex;
+           justify-content:space-between;align-items:center}
+  #f1 .servico{font-weight:400;letter-spacing:.28em;text-transform:uppercase;font-size:24px}
+  #f1 .logo{font-weight:500;letter-spacing:.05em;font-size:40px}
+  #f1 .hl{position:absolute;left:72px;bottom:300px;right:160px;font-size:76px;line-height:1.05}
+  #f1 .sub{position:absolute;left:72px;bottom:192px;right:240px;font-style:italic;
+           font-size:36px;color:#f0e3d8}
+  #f1 .arrasta{position:absolute;left:72px;bottom:88px;letter-spacing:.28em;
+               text-transform:uppercase;font-size:28px;color:var(--teal-bright)}
+
+  /* FRAME 02 — EDUCATIVO */
+  #f2{background:var(--areia);color:var(--bordo);padding:108px 96px}
+  #f2 .eyebrow{color:var(--teal)}
+  #f2 .rule{width:320px;height:2px;background:var(--teal);opacity:.5;margin:28px 0 52px}
+  #f2 .headline{color:var(--bordo);margin-bottom:48px}
+  #f2 .headline em{color:var(--teal)}
+  #f2 .body{color:var(--bordo);opacity:.92}
+  #f2 .body em{color:var(--teal);font-style:italic}
+  #f2 .body p+p{margin-top:36px}
+
+  /* FRAME 03 — NEGAÇÃO */
+  #f3{background:var(--branco);color:var(--bordo);padding:108px 96px}
+  #f3 .eyebrow{color:var(--teal)}
+  #f3 .big{font-family:'Jost';font-weight:400;font-size:124px;line-height:.98;
+           color:var(--bordo);margin:36px 0 60px}
+  #f3 .item{display:flex;align-items:flex-start;gap:32px;margin-bottom:36px;font-size:46px}
+  #f3 .x{flex:0 0 60px;width:60px;height:60px;border:3px solid var(--teal);border-radius:50%;
+        display:flex;align-items:center;justify-content:center;color:var(--teal);
+        font-size:30px;margin-top:4px}
+  #f3 .item b{font-weight:500;color:var(--bordo)}
+  #f3 .item span{font-weight:300;color:var(--bordo)}
+  #f3 .quote{border-left:4px solid var(--teal);padding-left:36px;margin-top:68px;
+            font-weight:300;font-size:42px;line-height:1.5;color:#9a8a82}
+
+  /* FRAME 04 — PRA QUEM É */
+  #f4{background:var(--bordo);color:var(--branco);padding:96px}
+  #f4 .eyebrow{color:var(--teal-bright)}
+  #f4 .headline{color:var(--branco);margin:28px 0 64px}
+  #f4 .headline em{color:var(--teal-bright)}
+  #f4 .bul{display:flex;align-items:center;gap:32px;margin-bottom:40px;
+           font-size:42px;color:#e8dede}
+  #f4 .dot{flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:var(--teal-bright)}
+  #f4 .card{display:flex;gap:32px;align-items:center;
+           border-top:2px solid rgba(255,255,255,.18);padding-top:40px;margin-top:48px}
+  #f4 .avatar{width:116px;height:116px;border-radius:16px;flex:0 0 116px;object-fit:cover;
+             background:linear-gradient(135deg,#7a5050,#4c2929)}
+  #f4 .card .nome{font-weight:500;font-size:34px;color:var(--branco)}
+  #f4 .card .desc{font-weight:300;font-size:30px;color:#b59a9a;line-height:1.4;margin-top:6px}
+
+  /* FRAME 05 — RESULTADO */
+  #f5{background:var(--sage);color:var(--bordo);padding:96px 88px}
+  #f5 .eyebrow{color:var(--teal)}
+  #f5 .headline{color:var(--bordo);font-size:76px;margin:24px 0 44px}
+  #f5 .headline em{color:var(--teal)}
+  #f5 .imgbox{width:100%;height:400px;border-radius:12px;
+        background:repeating-linear-gradient(135deg,#c3dada,#c3dada 24px,#bcd4d4 24px,#bcd4d4 48px);
+        display:flex;align-items:center;justify-content:center;color:#5a7878;font-size:26px;
+        letter-spacing:.08em;text-transform:uppercase;border:2px solid rgba(0,0,0,.06)}
+  #f5 .tags{display:flex;justify-content:space-between;align-items:center;margin:32px 4px 28px}
+  #f5 .tag{font-weight:400;letter-spacing:.16em;text-transform:uppercase;font-size:28px}
+  #f5 .tag.antes{color:#9a8a82}
+  #f5 .tag.depois{color:var(--teal)}
+  #f5 .tagline{flex:1;height:2px;background:rgba(0,0,0,.15);margin:0 28px}
+  #f5 .leg{font-style:italic;font-weight:300;font-size:36px;line-height:1.5;color:#5a6a6a}
+
+  /* FRAME 06 — CTA FINAL */
+  #f6{background:var(--verde);color:var(--branco);text-align:center;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px}
+  #f6 .eyebrow{color:#bfe3e3;margin-bottom:44px}
+  #f6 .headline{color:var(--branco);font-size:76px;margin-bottom:60px}
+  #f6 .headline em{color:#cfeeee}
+  #f6 .sub{font-weight:300;font-size:38px;line-height:1.5;color:#dff2f2;margin-bottom:52px}
+  #f6 .mini-rule{width:92px;height:2px;background:rgba(255,255,255,.5);margin-bottom:52px}
+  #f6 .fone{border:2px solid rgba(255,255,255,.6);border-radius:80px;padding:36px 88px;
+           font-weight:400;font-size:48px;letter-spacing:.02em;margin-bottom:68px}
+  #f6 .assin{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:36px;color:#bfe3e3}
+</style>
+</head>
+<body>
+
+<!-- FRAME 01 — CAPA -->
+<div class="page" id="f1" data-document-role="page" data-label="01 Capa">
+  <div class="top">
+    <div class="servico">Harmonização de Glúteos</div>
+    <div class="logo">clinclin</div>
+  </div>
+  <div class="hl">Harmonização de glúteos <em>não é cirurgia.</em></div>
+  <div class="sub">O que é, o que não é, e o que muda no seu corpo.</div>
+  <div class="arrasta">Arrasta &rarr;</div>
+</div>
+
+<!-- FRAME 02 — EDUCATIVO -->
+<div class="page" id="f2" data-document-role="page" data-label="02 Educativo">
+  <div class="eyebrow">Primeiro, o básico</div>
+  <div class="rule"></div>
+  <div class="headline">Sem corte.<br>Sem cirurgia.</div>
+  <div class="body">
+    <p>Harmonização de glúteos é um <em>injetável</em>. A Dra. Marisa aplica ácido hialurônico — uma substância que o seu próprio corpo já produz — pra dar volume, elevar e modelar.</p>
+    <p>Sem bisturi. Sem internação. Você chega, faz o procedimento e vai embora.</p>
+  </div>
+</div>
+
+<!-- FRAME 03 — NEGAÇÃO -->
+<div class="page" id="f3" data-document-role="page" data-label="03 Não é silicone">
+  <div class="eyebrow">Antes que você pergunte</div>
+  <div class="big">Não é<br>silicone.</div>
+  <div class="item"><div class="x">&times;</div><div><b>Não é implante.</b></div></div>
+  <div class="item"><div class="x">&times;</div><div><b>Não é cirurgia plástica.</b></div></div>
+  <div class="item"><div class="x">&times;</div><div><b>Não tem PMMA.</b> <span>A gente não usa material permanente.</span></div></div>
+  <div class="quote">É um produto biocompatível e reversível. Se um dia você quiser desfazer, dá.</div>
+</div>
+
+<!-- FRAME 04 — PRA QUEM É -->
+<div class="page" id="f4" data-document-role="page" data-label="04 Pra quem é">
+  <div class="eyebrow">Pra quem é</div>
+  <div class="headline">Pra quem quer <em>resultado</em> sem passar por cirurgia.</div>
+  <div class="bul"><div class="dot"></div>Quer mais volume sem implante.</div>
+  <div class="bul"><div class="dot"></div>Quer modelar sem academia três vezes por dia.</div>
+  <div class="bul"><div class="dot"></div>Quer resultado rápido, sem meses de recuperação.</div>
+  <div class="card">
+    <div class="avatar"></div>
+    <div>
+      <div class="nome">Dra. Marisa Kelly · biomédica</div>
+      <div class="desc">Ela avalia o seu caso antes de qualquer coisa. Nada começa sem uma conversa.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAME 05 — RESULTADO -->
+<div class="page" id="f5" data-document-role="page" data-label="05 Resultado">
+  <div class="eyebrow">O que muda</div>
+  <div class="headline">Parece natural porque <em>respeita</em> o seu corpo.</div>
+  <div class="imgbox">Imagem antes / em tratamento</div>
+  <div class="tags">
+    <span class="tag antes">Antes</span>
+    <span class="tagline"></span>
+    <span class="tag depois">Em tratamento</span>
+  </div>
+  <div class="leg">Resultado real de paciente Clin Clin. Cada corpo responde no seu tempo — a gente conversa sobre o seu na avaliação.</div>
+</div>
+
+<!-- FRAME 06 — CTA FINAL -->
+<div class="page" id="f6" data-document-role="page" data-label="06 Agendar">
+  <div class="eyebrow">Próximo passo</div>
+  <div class="headline">Senta aqui. A gente <em>conversa</em> antes de qualquer coisa.</div>
+  <div class="sub">Avaliação com a Dra. Marisa Kelly.<br>Sem pressão, sem protocolo pronto.</div>
+  <div class="mini-rule"></div>
+  <div class="fone">(31) 99880-9808</div>
+  <div class="assin">Nem parece clínica. Parece carinho.</div>
+</div>
+
+</body>
+</html>
